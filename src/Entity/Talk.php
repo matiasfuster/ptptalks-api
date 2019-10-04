@@ -2,6 +2,8 @@
 
 namespace Solcre\ptptalks\Entity;
 
+use Solcre\ptptalks\Exception\InvalidFilenameException;
+
 class Talk
 {
 
@@ -162,7 +164,11 @@ class Talk
      */
     public function getId()
     {
-        return (int)explode('.json', basename($this->filename))[0];
+        $id = explode('.json', basename($this->filename))[0];
+        if (!is_numeric($id)) {
+            throw new InvalidFilenameException('Filename must match Ymd.json format.');
+        }
+        return (int)$id;
     }
 
     public function getDate()
