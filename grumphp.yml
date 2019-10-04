@@ -99,3 +99,6 @@ parameters:
             exception_on_invalid_type: false
             parse_constant: false
             parse_custom_tags: false
+        jsonlint:
+            ignore_patterns: [./test/*]
+            detect_key_conflicts: false
