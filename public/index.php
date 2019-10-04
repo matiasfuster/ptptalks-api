@@ -10,7 +10,6 @@ use Dotenv\Dotenv;
 use Solcre\ptptalks\Entity\Talk;
 use Solcre\ptptalks\Helper\TalkLoader;
 
-
 date_default_timezone_set('America/Montevideo');
 
 // Load dot env library
