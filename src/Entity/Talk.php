@@ -3,20 +3,21 @@
 namespace Solcre\ptptalks\Entity;
 
 class Talk
-{ 
+{
+
     protected $filename;
     protected $speaker;
     protected $avatar;
     protected $title;
     protected $image;
-    protected $slide;
+    protected $slides;
     protected $tags;
 
     
 
     /**
      * Get the value of filename
-     */ 
+     */
     public function getFilename()
     {
         return $this->filename;
@@ -26,7 +27,7 @@ class Talk
      * Set the value of filename
      *
      * @return  self
-     */ 
+     */
     public function setFilename($filename)
     {
         $this->filename = $filename;
@@ -36,7 +37,7 @@ class Talk
 
     /**
      * Get the value of speaker
-     */ 
+     */
     public function getSpeaker()
     {
         return $this->speaker;
@@ -46,7 +47,7 @@ class Talk
      * Set the value of speaker
      *
      * @return  self
-     */ 
+     */
     public function setSpeaker($speaker)
     {
         $this->speaker = $speaker;
@@ -56,7 +57,7 @@ class Talk
 
     /**
      * Get the value of avatar
-     */ 
+     */
     public function getAvatar()
     {
         return $this->avatar;
@@ -66,7 +67,7 @@ class Talk
      * Set the value of avatar
      *
      * @return  self
-     */ 
+     */
     public function setAvatar($avatar)
     {
         $this->avatar = $avatar;
@@ -76,7 +77,7 @@ class Talk
 
     /**
      * Get the value of title
-     */ 
+     */
     public function getTitle()
     {
         return $this->title;
@@ -86,7 +87,7 @@ class Talk
      * Set the value of title
      *
      * @return  self
-     */ 
+     */
     public function setTitle($title)
     {
         $this->title = $title;
@@ -96,7 +97,7 @@ class Talk
 
     /**
      * Get the value of image
-     */ 
+     */
     public function getImage()
     {
         return $this->image;
@@ -106,7 +107,7 @@ class Talk
      * Set the value of image
      *
      * @return  self
-     */ 
+     */
     public function setImage($image)
     {
         $this->image = $image;
@@ -116,7 +117,7 @@ class Talk
 
     /**
      * Get the value of slides
-     */ 
+     */
     public function getSlides()
     {
         return $this->slides;
@@ -126,7 +127,7 @@ class Talk
      * Set the value of slides
      *
      * @return  self
-     */ 
+     */
     public function setSlides($slides)
     {
         $this->slides = $slides;
@@ -136,7 +137,7 @@ class Talk
 
     /**
      * Get the value of tags
-     */ 
+     */
     public function getTags()
     {
         return $this->tags;
@@ -146,7 +147,7 @@ class Talk
      * Set the value of tags
      *
      * @return  self
-     */ 
+     */
     public function setTags($tags)
     {
         $this->tags = $tags;
@@ -157,9 +158,9 @@ class Talk
     /**
      * Return the id of the talk
      *
-     * @return void
+     * @return int
      */
-    public function getId() 
+    public function getId()
     {
         return (int)explode('.json', basename($this->filename))[0];
     }
@@ -181,12 +182,12 @@ class Talk
      * @param string $avatar
      */
     public function __construct(
-        $filename, 
-        $speaker, 
-        $title, 
-        Array $tags, 
-        $slides = "", 
-        $image = "", 
+        $filename,
+        $speaker,
+        $title,
+        Array $tags,
+        $slides = "",
+        $image = "",
         $avatar = ""
     ) {
         $this->setFilename($filename);
@@ -198,7 +199,8 @@ class Talk
         $this->setAvatar($avatar);
     }
 
-    public function toArray() {
+    public function toArray()
+    {
         return [
             "id" => $this->getId(),
             "date" => $this->getDate(),
