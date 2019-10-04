@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+        colors="true"
+        bootstrap="./test/bootstrap.php">
+    <testsuites>
+        <testsuite name="PTP Talks">
+            <directory>./test/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
