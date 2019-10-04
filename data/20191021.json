@@ -1,0 +1,8 @@
+{
+    "speaker" : "Matías Fuster",
+    "avatar" : "https://api.columnis.com/uploads/046/images/thumbs/122_12_80@2.jpg",
+    "title" : "Continuous Integration en AWS y Azure",
+    "image" : "https://techpatrol.com.au/wp-content/uploads/2019/02/AWS-Azure-The-Difference-Tech-Patrol.png",
+    "slides" : "",
+    "tags" : [ "ci", "aws", "azure", "deployment", "agile"]
+}

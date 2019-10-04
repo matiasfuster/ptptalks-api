@@ -1,0 +1,8 @@
+{
+    "speaker" : "Agustín Tabárez",
+    "avatar" : "https://api.columnis.com/uploads/046/images/thumbs/122_36_80@2.jpg",
+    "title" : "Introducción a Docker",
+    "image" : "https://www.nclouds.com/blog/wp-content/uploads/2018/10/reduce_docker_image_size_by_45.jpg",
+    "slides" : "",
+    "tags" : [ "docker", "container", "compose", "portability", "development", "deployment"]
+}
