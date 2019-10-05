@@ -1,21 +1,22 @@
 version: 0.2
 phases:
- install:
-   commands:
-     - |
-         #Install composer
-         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-         php composer-setup.php ;
-         php -r "unlink('composer-setup.php');" ;
-         mv composer.phar /usr/local/bin/composer
- build:
-   commands:
-     - echo Build started on `date`
-     - echo Installing composer deps
-     - composer install
-
- post_build:
-   commands:
-     - echo Build completed on `date`
-     - echo Running PHPUnit, JSONLint, PHPCS, PHPStan
-     - ./vendor/bin/grumphp run --tasks "jsonlint,phpunit,phpcs,phpstan" 
+    install:
+        runtime-versions:
+            php: 7.3
+    commands:
+        -   |
+             #Install composer
+             php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+             php composer-setup.php ;
+             php -r "unlink('composer-setup.php');" ;
+             mv composer.phar /usr/local/bin/composer
+    build:
+        commands:
+            - echo Build started on `date`
+            - echo Installing composer deps
+            - composer install
+    post_build:
+        commands:
+            - echo Build completed on `date`
+            - echo Running PHPUnit, JSONLint, PHPCS, PHPStan
+            - ./vendor/bin/grumphp run --tasks "jsonlint,phpunit,phpcs,phpstan" 
