@@ -18,5 +18,8 @@ phases:
     post_build:
         commands:
             - echo Build completed on `date`
-            - echo Running PHPUnit, JSONLint, PHPCS, PHPStan
-            - ./vendor/bin/grumphp run --tasks "jsonlint,phpunit,phpcs,phpstan" 
+            - echo Running JSONLint, PHPCS, PHPStan, PHPUnit
+            - ./vendor/bin/jsonlint data/*.json
+            - ./vendor/bin/phpcs src --standard=PSR2
+            - ./vendor/bin/phpstan analyse src/ --level max
+            - ./vendor/bin/phpunit
