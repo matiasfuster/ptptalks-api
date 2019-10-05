@@ -1,4 +1,7 @@
 version: 0.2
+env:
+    variables:
+        key: "value"
 phases:
     install:
         runtime-versions:
@@ -23,3 +26,4 @@ phases:
             - ./vendor/bin/phpcs src --standard=PSR2
             - ./vendor/bin/phpstan analyse src/ --level max
             - ./vendor/bin/phpunit
+            - echo Tests completed on `date`
