@@ -27,3 +27,7 @@ phases:
             - ./vendor/bin/phpstan analyse src/ --level max
             - ./vendor/bin/phpunit
             - echo Tests completed on `date`
+artifacts:
+    files:
+        - '**/*'
+    name: myname-$(date +%Y-%m-%d)
