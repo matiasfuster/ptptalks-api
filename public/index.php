@@ -13,8 +13,11 @@ use Solcre\ptptalks\Helper\TalkLoader;
 date_default_timezone_set('America/Montevideo');
 
 // Load dot env library
-$dotenv = Dotenv::create(__DIR__ . '/../');
-$dotenv->load();
+$envPath = __DIR__ . '/../';
+if (is_file($envPath.'.env')) {
+    $dotenv = Dotenv::create($envPath);
+    $dotenv->load();
+}
 
 // Instantiate PHP-DI Container
 $container = new Container();
