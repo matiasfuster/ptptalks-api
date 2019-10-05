@@ -8,23 +8,32 @@ class TalkLoader
 {
     public static function load($path)
     {
-        $talks = [];
+        if (!is_dir($path)) {
+            return [];
+        }
         
-        if (is_dir($path)) {
-            $files = glob($path . "[0-9]*.json");
+        $files = glob($path . "[0-9]*.json");
+        if (!$files) {
+            return [];
+        }
 
-            foreach ($files as $file) {
-                $talksDef = json_decode(file_get_contents($file), true);
-                $talks[] = new Talk(
-                    $file,
-                    $talksDef['speaker'],
-                    $talksDef['title'],
-                    $talksDef['tags'],
-                    $talksDef['slides'],
-                    $talksDef['image'],
-                    $talksDef['avatar']
-                );
+        $talks = [];
+        foreach ($files as $file) {
+            $content = file_get_contents($file);
+            if (!$content) {
+                continue;
             }
+
+            $talksDef = json_decode($content, true);
+            $talks[] = new Talk(
+                $file,
+                $talksDef['speaker'],
+                $talksDef['title'],
+                $talksDef['tags'],
+                $talksDef['slides'],
+                $talksDef['image'],
+                $talksDef['avatar']
+            );
         }
 
         return $talks;
