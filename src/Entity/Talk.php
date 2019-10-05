@@ -173,7 +173,7 @@ class Talk
 
     public function getDate()
     {
-        return date_create_from_format('Ymd', $this->getId());
+        return date_create_from_format('Ymd', (string)$this->getId());
     }
 
     /**
