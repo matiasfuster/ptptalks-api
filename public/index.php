@@ -37,6 +37,7 @@ $errorMiddleware = new ErrorMiddleware(
 );
 $app->add($errorMiddleware);
 
+$app->redirect('/', '/talks', 301);
 $app->get('/talks', function ($request, $response, $args) {
     $talksArr = [];
     $talksPath = __DIR__ . getenv('TALKS_RELATIVE_PATH');
